@@ -1,4 +1,4 @@
-<script  lang="ts">
+<script  lang="">
 import Navbar from '../components/Navbar.vue'
 import Card from '../components/Card.vue'
 
@@ -86,7 +86,7 @@ export default {
   </div>
   <div class="mt-5 text-center">
   <h2>Trending</h2>
-  <Card v-if="feeds != ''" :data="feeds" />
+  <Card  :data="feeds" />
   </div>
 </template>
 

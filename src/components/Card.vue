@@ -1,5 +1,5 @@
 
-<script>
+<script lang="ts">
 import PodcastModal from '../components/PodcastModal.vue'
 
 
@@ -36,8 +36,9 @@ export default {
 
 
 <template>
-<PodcastModal v-if="dataModal != ''" :data='dataModal'/>
+
  <div  class="flex flex-wrap justify-center flex-row  w-5/6 mx-auto">
+        <PodcastModal v-if="dataModal != ''" :data='dataModal'/>
         <div  v-for="(d, i) in data" v-bind:key='i' class="w-58 rounded m-2.5 p-2.5 border shadow-lg">
             
             <img
@@ -48,7 +49,7 @@ export default {
             />
            
             <div class="px-2 py-2 max-w-fit">
-                <a :href="d.link" target="_blink">
+                <a :href="d.url" target="_blink">
                 <div class="font-bold cursor-pointer text-xl w-full mb-2 " >
                    <i class="fas fa-external-link-alt"></i> {{d.title}} 
                     
