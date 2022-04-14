@@ -1,5 +1,5 @@
 
-<script lang="ts">
+<script>
 import PodcastModal from '../components/PodcastModal.vue'
 
 

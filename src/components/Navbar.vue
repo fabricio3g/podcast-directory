@@ -79,26 +79,22 @@
 </template>
 
 
-<script lang="ts">
-import { defineComponent } from 'vue'
-interface DataInterface{
-    isActive: Boolean
-    windowWidth: Number
-}
-export default defineComponent({
+<script >
+
+export default {
    
-    data():DataInterface{
+    data(){
         return{
             isActive: false,
             windowWidth: window.innerWidth
         }
     },
     methods:{
-        activeNav(): void{
+        activeNav(){
             this.isActive = !this.isActive
         }
     },
-    mounted():void {
+    mounted() {
             window.onresize = () => {
                 this.windowWidth = window.innerWidth
                 console.log(this.windowWidth)
@@ -110,7 +106,7 @@ export default defineComponent({
                 }
             }
     }
-})
+}
 
 
 </script>
