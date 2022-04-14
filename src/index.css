@@ -1,0 +1,9 @@
+@import url('http://fonts.cdnfonts.com/css/cera-round-pro');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+    font-family: 'Cera Round Pro', sans-serif;
+    font-weight: 700;
+}
