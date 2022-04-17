@@ -8,38 +8,38 @@ import FeedsSerivces from '../services/FeedsServices.js'
 
 export default {
   name: 'Menu',
-  data(){
+  data() {
     return {
-      feeds: [Object],
+      feeds: null,
       searchValue: '',
       showEnterMesseg: false,
-      showResults: false,
-      searchResaults: ''
+      searchResaults: null,
     }
   },
   components: {
     Navbar,
     Card
   },
-  methods:{
-    async serchInput(){
-        let result = (await FeedsSerivces.searchByTerm(this.searchValue)).data.feeds
-        this.searchResaults = result
-        this.searchValue = ''
+  methods: {
+    async serchInput() {
+      let result = (await FeedsSerivces.searchByTerm(this.searchValue)).data.feeds
+      this.searchResaults = result
+      this.searchValue = ''
+      console.log(this.searchResaults)
     }
   },
-  async mounted(){
+  async mounted() {
     this.feeds = (await FeedsSerivces.show()).data.feeds
-    
+
   },
   watch: {
-    'searchValue': function(value) {
+    'searchValue': function (value) {
 
-      if((value).toString().trim() !== ''){
+      if ((value).toString().trim() !== '') {
 
-          this.showEnterMesseg = true
+        this.showEnterMesseg = true
       }
-      if((value).toString().trim() === ''){
+      if ((value).toString().trim() === '') {
 
         this.showEnterMesseg = false
       }
@@ -76,17 +76,23 @@ export default {
         class="hover:border-green-900 block p-2 pl-10 w-full text-gray-900 bg-white-50 rounded-lg border border-green-500 sm:text-sm focus:ring-green-500 focus:border-green-500 dark:bg-gray-700 dark:border-green-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500"
         placeholder="Search..."
       />
-     
     </div>
-     <div v-if="showEnterMesseg" class="flex justify-center mb-3  mx-auto py-3 border bg-green-200">Press enter to search</div>
+    <div
+      v-if="showEnterMesseg"
+      class="flex justify-center mb-3 mx-auto py-3 border bg-green-200"
+    >Press enter to search</div>
   </div>
-    <div v-if="searchResaults != ''" class="mt-5 text-center">
-  <h2>Search results</h2>
-    <Card  :data="searchResaults" />
+  <div  v-if="searchResaults"  class="mt-5 text-center">
+    <h2>Search results</h2>
+    <Card :data="searchResaults" />
+
   </div>
+  
   <div class="mt-5 text-center">
-  <h2>Trending</h2>
-  <Card  :data="feeds" />
+    <h2>Trending</h2>
+   
+      <img v-if="!feeds" class="mx-auto" src="https://c.tenor.com/Tu0MCmJ4TJUAAAAC/load-loading.gif" alt="loading">
+    <Card v-if="feeds"  :data="feeds" />
   </div>
 </template>
 
