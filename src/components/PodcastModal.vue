@@ -3,6 +3,7 @@
 
 
 
+
 export default {
     props: {
        data: [Array]
@@ -76,7 +77,7 @@ export default {
                 <ul class="mt-5 mb-5 flex flex-col justify-center text-center text-2xl">
                     <li class="flex flex-col">
                         <span>Description: </span>
-                        <span class="text-gray-700 text-sm  px-2">{{data.description}}</span> 
+                        <span v-html='data.description' class="text-gray-700 text-sm  px-2"></span> 
                     </li>
                     <span class="mt-2 mb-1">Categories:</span>
                     <li class=" mx-6 flex flex-row justify-center flex-wrap">
@@ -85,7 +86,7 @@ export default {
                     </li>
                 </ul>
                 <div class="text-center">
-                    <a :href="data.link" target="_blink">
+                    <a :href="data.url" target="_blink">
                     <button class="rounded-xl bg-black px-24 py-2 text-white">View</button>
                      </a>
                 </div>
