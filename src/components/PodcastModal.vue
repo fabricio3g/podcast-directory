@@ -1,9 +1,4 @@
 <script  >
-
-
-
-
-
 export default {
     props: {
        data: [Array]
@@ -35,7 +30,7 @@ export default {
     <div v-if="this.info != ''"
         id="popup-modal"
         tabindex="-1"
-        class=" bg-black bg-gray-300 overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 md:inset-0 h-modal md:h-full justify-center items-center flex"
+        class="position-absolulte bg-black bg-gray-300 overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 md:inset-0 h-modal md:h-full justify-center items-center flex"
         aria-modal="true"
         role="dialog"
     >
